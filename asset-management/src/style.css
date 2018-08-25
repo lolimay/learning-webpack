@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'wbicon';
+    src: url('./wbicon.woff') format('woff');
+}
+
+.hello {
+    color: red;
+    font-family: 'wbicon'
+}
