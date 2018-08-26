@@ -4,7 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const webpack = require('webpack')
 
 module.exports = {
-    mode: "development",
+    mode: 'development',
     entry: {
         app: './src/index.js'
     },
@@ -20,6 +20,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Output Management'
         }),
+        new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ],
     output: {
