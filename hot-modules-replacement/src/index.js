@@ -1,5 +1,6 @@
 import _ from 'lodash'
-import printMe from './print'
+import printMe from './print.js'
+import './style.css'
 
 function component() {
     const element = document.createElement('div')
@@ -18,6 +19,7 @@ function component() {
 document.body.appendChild(component())
 
 if (module.hot) {
+    console.log('HMR has happened!')
     module.hot.accept('./print.js', function() {
         console.log('Accepting the updated printMe module!')
         printMe()
