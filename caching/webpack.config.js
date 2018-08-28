@@ -14,6 +14,7 @@ const common = {
         rules: [
             {
                 test: /\.css$/,
+                include: path.resolve(__dirname, 'src'),
                 use: ['style-loader', 'css-loader']
             }
         ]
@@ -71,7 +72,7 @@ const development = {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
-    devtool: 'inline-source-map',
+    devtool: 'cheap-module-eval-source-map',
     devServer: {
         contentBase: './dist',
         historyApiFallback: true,
