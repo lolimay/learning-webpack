@@ -11,8 +11,10 @@
   "author": "lolimay <1404363070@qq.com>",
   "license": "MIT",
   "devDependencies": {
+    "babel-eslint": "^8.2.6",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
+    "eslint": "^4.19.1",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.22.1",

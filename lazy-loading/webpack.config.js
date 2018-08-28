@@ -6,8 +6,7 @@ const merge = require('webpack-merge')
 
 const common = {
     entry: {
-        app: './src/index.js',
-        another: './src/another-module.js'
+        app: './src/index.js'
     },
     output: {
         filename: '[name].bundle.js',
@@ -46,7 +45,6 @@ const production = {
             uglifyOptions: {
                 parallel: 4,
                 compress: {
-                    drop_console: true,
                     ecma: 6,
                     toplevel: true
                 }
