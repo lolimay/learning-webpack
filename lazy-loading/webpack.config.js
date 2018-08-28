@@ -2,12 +2,9 @@ const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const mode = process.env.NODE_ENV || 'development'
+const merge = require('webpack-merge')
 
-const title = 'lazy loading'
-
-module.exports = {
-    mode,
+const common = {
     entry: {
         app: './src/index.js',
         another: './src/another-module.js'
@@ -16,22 +13,40 @@ module.exports = {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
+    plugins: [
+        new CleanWebpackPlugin(['dist']),
+        new HtmlWebpackPlugin({
+            title: 'lazy loading'
+        })
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            }
+        ]
+    }
+}
+
+const development = {
+    mode: 'development',
     devtool: 'inline-source-map',
     devServer: {
         contentBase: './dist',
         historyApiFallback: true,
-        hot: true,
-        inline: true
+        hot: true
     },
+}
+
+const production = {
+    mode: 'production',
     plugins: [
-        new CleanWebpackPlugin(['dist']),
-        new HtmlWebpackPlugin({
-            title: title
-        }),
         new UglifyJsPlugin({
             uglifyOptions: {
                 parallel: 4,
                 compress: {
+                    drop_console: true,
                     ecma: 6,
                     toplevel: true
                 }
@@ -72,13 +87,11 @@ module.exports = {
                 }
             }
         }
-    },
-    module: {
-        rules: [
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
-            }
-        ]
     }
+}
+
+if(process.env.NODE_ENV === 'production') {
+    module.exports = merge(common, production)
+} else {
+    module.exports = merge(common, development)
 }
