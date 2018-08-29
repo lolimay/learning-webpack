@@ -10,10 +10,6 @@
   "author": "lolimay <1404363070@qq.com>",
   "license": "MIT",
   "devDependencies": {
-    "@webpack-cli/init": "^0.1.0",
-    "webpack-cli": "^3.1.0"
-  },
-  "dependencies": {
-    "webpack": "^4.17.1"
+    "@webpack-cli/init": "^0.1.0"
   }
 }

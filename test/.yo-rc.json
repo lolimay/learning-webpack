@@ -1,0 +1,9 @@
+{
+  "webpack-addons-demo": {
+    "configuration": {
+      "dev": {
+        "webpackOptions": {}
+      }
+    }
+  }
+}
