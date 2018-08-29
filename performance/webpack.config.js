@@ -33,7 +33,7 @@ const common = {
     ]
 }
 
-const development = {
+const development = merge(common, {
     mode: 'development',
     output: {
         filename: '[name].bundle.js',
@@ -51,9 +51,9 @@ const development = {
         removeEmptyChunks: false,
         splitChunks: false,
     }
-}
+})
 
-const production = {
+const production = merge(common, {
     mode: 'production',
     output: {
         filename: '[name].[contenthash].js',
@@ -129,10 +129,6 @@ const production = {
         new InlineManifestWebpackPlugin('runtime'),
         new webpack.HashedModuleIdsPlugin()
     ]
-}
+})
 
-if(process.env.NODE_ENV === 'production') {
-    module.exports = merge(common, production)
-} else {
-    module.exports = merge(common, development)
-}
+process.env.NODE_ENV === 'production'?module.exports = production:module.exports = development
