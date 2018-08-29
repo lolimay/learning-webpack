@@ -37,7 +37,7 @@ const development = merge(common, {
     mode: 'development',
     output: {
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, '../dist'),
         pathinfo: false
     },
     devtool: 'cheap-module-eval-source-map',
@@ -57,7 +57,7 @@ const production = merge(common, {
     mode: 'production',
     output: {
         filename: '[name].[contenthash].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, '../dist')
     },
     optimization: {
         splitChunks: {
