@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{tjUo:function(o,n){document.writeln("Hello wepack!")}},[["tjUo",1]]]);
